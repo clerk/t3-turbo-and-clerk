@@ -1,9 +1,10 @@
 import type { NextPage } from "next";
 import Head from "next/head";
-import { signIn, signOut } from "next-auth/react";
 import { trpc } from "../utils/trpc";
 import type { inferProcedureOutput } from "@trpc/server";
 import type { AppRouter } from "@acme/api";
+import { useAuth, UserButton, useUser } from "@clerk/nextjs";
+import Link from "next/link";
 
 const PostCard: React.FC<{
   post: inferProcedureOutput<AppRouter["post"]["all"]>[number];
@@ -55,27 +56,27 @@ const Home: NextPage = () => {
 export default Home;
 
 const AuthShowcase: React.FC = () => {
-  const { data: session } = trpc.auth.getSession.useQuery();
-
+  const { isSignedIn, user } = useUser();
+  const { signOut } = useAuth();
   const { data: secretMessage } = trpc.auth.getSecretMessage.useQuery(
     undefined, // no input
-    { enabled: !!session?.user },
+    { enabled: !!isSignedIn },
   );
 
   return (
     <div className="flex flex-col items-center justify-center gap-4">
-      {session?.user && (
+      {isSignedIn && (
         <p className="text-center text-2xl text-white">
-          {session && <span>Logged in as {session?.user?.name}</span>}
+          {user && <span>Logged in as {user?.fullName}</span>}
           {secretMessage && <span> - {secretMessage}</span>}
+          <button onClick={signOut}>Sign Out</button>
         </p>
       )}
-      <button
-        className="rounded-full bg-white/10 px-10 py-3 font-semibold text-white no-underline transition hover:bg-white/20"
-        onClick={session ? () => signOut() : () => signIn()}
-      >
-        {session ? "Sign out" : "Sign in"}
-      </button>
+      {!isSignedIn && (
+        <p className="text-center text-2xl text-white">
+          <Link href="/sign-in">Sign In</Link>
+        </p>
+      )}
     </div>
   );
 };

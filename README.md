@@ -1,10 +1,19 @@
-# create-t3-turbo
+# create-t3-turbo-with-clerk
 
 <img width="1758" alt="turbo2" src="https://user-images.githubusercontent.com/51714798/202427720-4ec5f285-41a5-4fed-a52f-20b89c5bc1b3.png">
+<p align="center">
+  <a href="https://clerk.dev?utm_source=github&utm_medium=clerk_javascript" target="_blank" rel="noopener noreferrer">
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="https://images.clerk.dev/static/logo-dark-mode-400x400.png">
+      <img src="https://images.clerk.dev/static/logo-light-mode-400x400.png" height="64">
+    </picture>
+  </a>
+  <br />
+</p>
 
 ## About
 
-Ever wondered how to migrate your T3 application into a monorepo? Stop right here! This is the perfect starter repo to get you running with the perfect stack!
+This takes the original create-t3-turbo and adds clerk allowing you to have one auth package for both Expo and Next.js. You will notice there is no longer an auth package as it is not requried.
 
 It uses [Turborepo](https://turborepo.org/) and contains:
 
@@ -28,8 +37,6 @@ apps
 packages
  ├─ api
  |   └─ tRPC v10 router definition
- ├─ auth
-     └─ authentication using next-auth. **NOTE: Only for Next.js app, not Expo**
  └─ db
      └─ typesafe db-calls using Prisma
 ```
@@ -101,7 +108,7 @@ Let's deploy the Next.js application to [Vercel](https://vercel.com/). If you ha
 
 > The install command filters out the expo package and saves a few second (and cache size) of dependency installation. The build command makes us build the application using Turbo.
 
-2. Add your `DATABASE_URL` environment variable.
+2. Add your `DATABASE_URL`, `NEXT_PUBLIC_CLERK_FRONTEND_API`, `CLERK_API_KEY`, `CLERK_JWT_KEY` environment variable.
 
 3. Done! Your app should successfully deploy. Assign your domain and use that instead of `localhost` for the `url` in the Expo app so that your Expo app can communicate with your backend when you are not in development.
 

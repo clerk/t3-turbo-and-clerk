@@ -1,18 +1,27 @@
 import React from "react";
 
-import {
-  Text,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from "react-native";
-
+import { Button, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { useAuth } from "@clerk/clerk-expo";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { FlashList } from "@shopify/flash-list";
 import type { inferProcedureOutput } from "@trpc/server";
 import type { AppRouter } from "@acme/api";
 
 import { trpc } from "../utils/trpc";
+
+const SignOut = () => {
+  const { signOut } = useAuth();
+  return (
+    <View className="rounded-lg border-2 border-gray-500 p-4">
+      <Button
+        title="Sign Out"
+        onPress={() => {
+          signOut();
+        }}
+      />
+    </View>
+  );
+};
 
 const PostCard: React.FC<{
   post: inferProcedureOutput<AppRouter["post"]["all"]>[number];
@@ -99,6 +108,7 @@ export const HomeScreen = () => {
         />
 
         <CreatePost />
+        <SignOut />
       </View>
     </SafeAreaView>
   );

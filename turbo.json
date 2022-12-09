@@ -31,5 +31,10 @@
       "cache": false
     }
   },
-  "globalEnv": ["DATABASE_URL", "NEXTAUTH_SECRET", "NEXTAUTH_URL"]
+  "globalEnv": [
+    "DATABASE_URL",
+    "NEXT_PUBLIC_CLERK_FRONTEND_API",
+    "CLERK_API_KEY",
+    "CLERK_JWT_KEY"
+  ]
 }
