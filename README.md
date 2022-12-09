@@ -1,16 +1,5 @@
 # create-t3-turbo-with-clerk
 
-<img width="1758" alt="turbo2" src="https://user-images.githubusercontent.com/51714798/202427720-4ec5f285-41a5-4fed-a52f-20b89c5bc1b3.png">
-<p align="center">
-  <a href="https://clerk.dev?utm_source=github&utm_medium=clerk_javascript" target="_blank" rel="noopener noreferrer">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://images.clerk.dev/static/logo-dark-mode-400x400.png">
-      <img src="https://images.clerk.dev/static/logo-light-mode-400x400.png" height="64">
-    </picture>
-  </a>
-  <br />
-</p>
-
 ## About
 
 This takes the original create-t3-turbo and adds clerk allowing you to have one auth package for both Expo and Next.js. You will notice there is no longer an auth package as it is not requried.
