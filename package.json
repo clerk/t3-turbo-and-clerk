@@ -1,5 +1,5 @@
 {
-  "name": "create-t3-turbo",
+  "name": "t3-turbo-and-clerk",
   "private": true,
   "packageManager": "pnpm@7.13.0",
   "scripts": {
