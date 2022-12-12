@@ -29,10 +29,9 @@ const SignInWithOAuth = () => {
         returnUrl: redirectUrl,
       });
 
-      //@ts-ignore
+      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+      // @ts-ignore
       const { type, params } = result || {};
-      // Check all the possible AuthSession results
-      // https://docs.expo.dev/versions/latest/sdk/auth-session/#returns-7
       console.log;
       if (type !== "success") {
         throw "Something went wrong during the OAuth flow. Try again.";
