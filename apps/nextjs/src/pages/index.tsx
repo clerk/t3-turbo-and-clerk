@@ -68,8 +68,22 @@ const AuthShowcase: React.FC = () => {
       {isSignedIn && (
         <p className="text-center text-2xl text-white">
           {user && <span>Logged in as {user?.fullName}</span>}
-          {secretMessage && <span> - {secretMessage}</span>}
-          <button onClick={signOut}>Sign Out</button>
+          {secretMessage && (
+            <span>
+              {" "}
+              - {secretMessage} <br />{" "}
+            </span>
+          )}
+          {
+            <>
+              <br />
+              {
+                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                //@ts-ignore
+              }
+              <button onClick={signOut}>Sign Out</button>
+            </>
+          }
         </p>
       )}
       {!isSignedIn && (
