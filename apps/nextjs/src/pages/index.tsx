@@ -3,7 +3,7 @@ import Head from "next/head";
 import { trpc } from "../utils/trpc";
 import type { inferProcedureOutput } from "@trpc/server";
 import type { AppRouter } from "@acme/api";
-import { useAuth, UserButton, useUser } from "@clerk/nextjs";
+import { useAuth, useUser } from "@clerk/nextjs";
 import Link from "next/link";
 
 const PostCard: React.FC<{
@@ -80,8 +80,8 @@ const AuthShowcase: React.FC = () => {
               {
                 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
                 //@ts-ignore
+                <button onClick={signOut}>Sign Out</button>
               }
-              <button onClick={signOut}>Sign Out</button>
             </>
           }
         </p>
