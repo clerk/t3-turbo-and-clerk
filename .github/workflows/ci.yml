@@ -11,6 +11,10 @@ on:
 env:
   TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
   TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
+  NEXT_PUBLIC_CLERK_FRONTEND_API: ${{secrets.NEXT_PUBLIC_CLERK_FRONTEND_API}}
+  CLERK_API_KEY: ${{secrets.CLERK_API_KEY}}
+  CLERK_JWT_KEY: ${{secrets.CLERK_JWT_KEY}}
+
 
 jobs:
   build-lint:
