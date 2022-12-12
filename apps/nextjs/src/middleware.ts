@@ -10,11 +10,13 @@ export default withClerkMiddleware((_req: NextRequest) => {
 export const config = {
   matcher: [
     /*
-     * Match all request paths except for the ones starting with:
+     * Match request paths except for the ones starting with:
      * - _next
      * - static (static files)
      * - favicon.ico (favicon file)
+     *
+     * This includes images, and requests from TRPC.
      */
-    "/((?!_next|static|favicon.ico).*)",
+    "/(.*?trpc.*?|(?!static|.*\\..*|_next|favicon.ico).*)",
   ],
 };
