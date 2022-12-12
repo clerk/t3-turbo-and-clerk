@@ -1,5 +1,7 @@
 # create-t3-turbo-with-clerk
 
+[![CI](https://github.com/perkinsjr/t3-turbo-and-clerk/actions/workflows/ci.yml/badge.svg)](https://github.com/perkinsjr/t3-turbo-and-clerk/actions/workflows/ci.yml)
+
 ## About
 
 This takes the original create-t3-turbo and adds Clerk allowing you to have one auth package for both Expo and Next.js. You will notice there is no longer an auth package as it is not requried.
