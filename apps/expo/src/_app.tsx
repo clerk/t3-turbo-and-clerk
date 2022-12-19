@@ -1,25 +1,26 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { TRPCAuthContext } from "./utils/trpc";
+import { TRPCProvider } from "./utils/trpc";
 
 import { HomeScreen } from "./screens/home";
 import { SignInScreen } from "./screens/signin";
 import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-expo";
 import { tokenCache } from "./utils/cache";
 
-const clerk_frontend_api = "clerk.open.sawfly-58.lcl.dev";
+// Find this in your Dashboard.
+const clerk_frontend_api = "YOUR_CLERK_FRONTEND_API";
 
 export const App = () => {
   return (
     <ClerkProvider frontendApi={clerk_frontend_api} tokenCache={tokenCache}>
       <SignedIn>
-        <TRPCAuthContext>
+        <TRPCProvider>
           <SafeAreaProvider>
             <HomeScreen />
             <StatusBar />
           </SafeAreaProvider>
-        </TRPCAuthContext>
+        </TRPCProvider>
       </SignedIn>
       <SignedOut>
         <SignInScreen />
