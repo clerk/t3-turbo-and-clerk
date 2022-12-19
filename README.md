@@ -55,6 +55,10 @@ cp .env.example .env
 pnpm db-push
 ```
 
+### Configure Expo app
+
+In the `_app.tsx` replace `const clerk_frontend_api = "YOUR_CLERK_FRONTEND_API";` with your api key.
+
 ### Configure Expo `dev`-script
 
 > **Note:** If you want to use a physical phone with Expo Go, just run `pnpm dev` and scan the QR-code.
