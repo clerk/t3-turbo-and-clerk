@@ -9,12 +9,11 @@ import Constants from "expo-constants";
  * A wrapper for your app that provides the TRPC context.
  * Use only in _app.tsx
  */
-import React, { useEffect } from "react";
+import React from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { httpBatchLink } from "@trpc/client";
 import { transformer } from "@acme/api/transformer";
 import { useAuth } from "@clerk/clerk-expo";
-import { Text } from "react-native";
 
 /**
  * A set of typesafe hooks for consuming your API.
@@ -35,17 +34,18 @@ const getBaseUrl = () => {
 
 export const TRPCProvider: React.FC<{
   children: React.ReactNode;
-  authToken: string | null;
-}> = ({ children, authToken }) => {
+}> = ({ children }) => {
+  const { getToken } = useAuth();
   const [queryClient] = React.useState(() => new QueryClient());
   const [trpcClient] = React.useState(() =>
     trpc.createClient({
       transformer,
       links: [
         httpBatchLink({
-          headers() {
+          async headers() {
+            const authToken = await getToken();
             return {
-              Authorization: authToken || "",
+              Authorization: authToken,
             };
           },
           url: `${getBaseUrl()}/api/trpc`,
@@ -59,20 +59,4 @@ export const TRPCProvider: React.FC<{
       <QueryClientProvider client={queryClient}>{children}</QueryClientProvider>
     </trpc.Provider>
   );
-};
-
-export const TRPCAuthContext: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
-  const { getToken } = useAuth();
-  const [authToken, setAuthToken] = React.useState<string | null>(null);
-  useEffect(() => {
-    getToken().then((token) => {
-      setAuthToken(token);
-    });
-  }, []);
-
-  if (!authToken) return <Text>Loading</Text>;
-
-  return <TRPCProvider authToken={authToken}>{children}</TRPCProvider>;
 };
