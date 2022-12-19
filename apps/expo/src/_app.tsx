@@ -8,7 +8,8 @@ import { SignInScreen } from "./screens/signin";
 import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-expo";
 import { tokenCache } from "./utils/cache";
 
-const clerk_frontend_api = "clerk.crack.hen-64.lcl.dev";
+// Find this in your Dashboard.
+const clerk_frontend_api = "YOUR_CLERK_FRONTEND_API";
 
 export const App = () => {
   return (
