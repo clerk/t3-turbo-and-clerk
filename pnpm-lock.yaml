@@ -29,7 +29,7 @@ importers:
       '@babel/core': ^7.19.3
       '@babel/preset-env': ^7.19.3
       '@babel/runtime': ^7.19.0
-      '@clerk/clerk-expo': ^0.10.6
+      '@clerk/clerk-expo': ^0.10.15
       '@shopify/flash-list': ^1.4.0
       '@tanstack/react-query': ^4.16.1
       '@trpc/client': ^10.1.0
@@ -55,7 +55,7 @@ importers:
     dependencies:
       '@acme/api': link:../../packages/api
       '@acme/tailwind-config': link:../../packages/config/tailwind
-      '@clerk/clerk-expo': 0.10.6_ltxsnhj3waoeyr73zzny5rkleq
+      '@clerk/clerk-expo': 0.10.15_ltxsnhj3waoeyr73zzny5rkleq
       '@shopify/flash-list': 1.4.0_u2tfci3hcclp5veznklgxvxlyq
       '@tanstack/react-query': 4.19.1_slnhbjkuf3cktqrwdgz34rrasq
       '@trpc/client': 10.5.0_@trpc+server@10.5.0
@@ -1464,13 +1464,13 @@ packages:
       - encoding
     dev: false
 
-  /@clerk/clerk-expo/0.10.6_ltxsnhj3waoeyr73zzny5rkleq:
-    resolution: {integrity: sha512-UAJc91DHLvTXvxaHwnTpUG57BkoS/bGAmfL9TStQJ4hdyjhb9NBKK8pdAVrRiogKP1PY+d/NTO/gIh/2WW68iQ==}
+  /@clerk/clerk-expo/0.10.15_ltxsnhj3waoeyr73zzny5rkleq:
+    resolution: {integrity: sha512-hoQjKr7RGzSjOeYxzjGFNosHhMyec6ZEL57LWPcHIzfSKVH487BUWozMS7YM3+FwljCHj809PZpC6I8dMfhoPw==}
     engines: {node: '>=14'}
     peerDependencies:
       react: '>=16'
     dependencies:
-      '@clerk/clerk-js': 4.21.5_bojq522x43gltlp3o2g2z3fkw4
+      '@clerk/clerk-js': 4.22.0_bojq522x43gltlp3o2g2z3fkw4
       '@clerk/clerk-react': 4.7.0_biqbaboplfbrettd7655fr4n2y
       base-64: 1.0.0
       react: 18.2.0
@@ -1483,10 +1483,10 @@ packages:
       - react-test-renderer
     dev: false
 
-  /@clerk/clerk-js/4.21.5_bojq522x43gltlp3o2g2z3fkw4:
-    resolution: {integrity: sha512-oTzKWp2uYAvtvx4/elbTV+CyGmuzlm88oYfw11DG1jR1sBQ52yC2Dq9t/01lX6qtDh3tLY5i8GzRZzWDJJNy2Q==}
+  /@clerk/clerk-js/4.22.0_bojq522x43gltlp3o2g2z3fkw4:
+    resolution: {integrity: sha512-q9DfLynBjTukeEpcHDcM3hCra1+D4uSCRHnhCSAdr5ak7Tc7+4jx8yV4CROSMc0I3eofyl0U9qgLiHa2mKLOcg==}
     dependencies:
-      '@clerk/localizations': 1.1.3_react@18.2.0
+      '@clerk/localizations': 1.1.5_react@18.2.0
       '@clerk/shared': 0.8.3_biqbaboplfbrettd7655fr4n2y
       '@clerk/types': 3.23.0
       '@emotion/cache': 11.10.5
@@ -1567,8 +1567,8 @@ packages:
       - encoding
     dev: false
 
-  /@clerk/localizations/1.1.3_react@18.2.0:
-    resolution: {integrity: sha512-UXATdrZMF7JjWQ5mD+P13/lcsby9NDlkzBtVw/D9y55XpIDkn25rj5KTd5iTUTpo3JkdLK/iYgwahwWSOrI16Q==}
+  /@clerk/localizations/1.1.5_react@18.2.0:
+    resolution: {integrity: sha512-SJrdj8ubjDziNQKxtBD5AfMFkGdIQhygk/PX/Oj7pvV3FyHbi8vnPGv8LSn5aHLSaoOn4084iezN1l4u8mJINw==}
     engines: {node: '>=14'}
     peerDependencies:
       react: '>=16'
