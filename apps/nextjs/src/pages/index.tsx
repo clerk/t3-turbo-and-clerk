@@ -3,7 +3,7 @@ import Head from "next/head";
 import { trpc } from "../utils/trpc";
 import type { inferProcedureOutput } from "@trpc/server";
 import type { AppRouter } from "@acme/api";
-import { useClerk, useUser } from "@clerk/nextjs";
+import { useAuth, UserButton } from "@clerk/nextjs";
 import Link from "next/link";
 
 const PostCard: React.FC<{
@@ -56,35 +56,38 @@ const Home: NextPage = () => {
 export default Home;
 
 const AuthShowcase: React.FC = () => {
-  const { isSignedIn, user } = useUser();
-  const { signOut } = useClerk();
+  const { isSignedIn } = useAuth();
   const { data: secretMessage } = trpc.auth.getSecretMessage.useQuery(
-    undefined, // no input
+    undefined,
     { enabled: !!isSignedIn },
   );
 
   return (
     <div className="flex flex-col items-center justify-center gap-4">
       {isSignedIn && (
-        <p className="text-center text-2xl text-white">
-          {user && <span>Logged in as {user?.fullName}</span>}
-          {secretMessage && (
-            <span>
-              {" "}
-              - {secretMessage} <br />{" "}
-            </span>
-          )}
-          {
-            <>
-              <br />
-              {
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                //@ts-ignore
-                <button onClick={signOut}>Sign Out</button>
-              }
-            </>
-          }
-        </p>
+        <>
+          <p className="text-center text-2xl text-white">
+            {secretMessage && (
+              <span>
+                {" "}
+                {secretMessage} click the user button!
+                <br />
+              </span>
+            )}
+          </p>
+          <div className="flex items-center justify-center">
+            <UserButton
+              appearance={{
+                elements: {
+                  userButtonAvatarBox: {
+                    width: "3rem",
+                    height: "3rem",
+                  },
+                },
+              }}
+            />
+          </div>
+        </>
       )}
       {!isSignedIn && (
         <p className="text-center text-2xl text-white">
