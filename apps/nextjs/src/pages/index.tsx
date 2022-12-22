@@ -3,7 +3,7 @@ import Head from "next/head";
 import { trpc } from "../utils/trpc";
 import type { inferProcedureOutput } from "@trpc/server";
 import type { AppRouter } from "@acme/api";
-import { useAuth, useUser } from "@clerk/nextjs";
+import { useClerk, useUser } from "@clerk/nextjs";
 import Link from "next/link";
 
 const PostCard: React.FC<{
@@ -57,7 +57,7 @@ export default Home;
 
 const AuthShowcase: React.FC = () => {
   const { isSignedIn, user } = useUser();
-  const { signOut } = useAuth();
+  const { signOut } = useClerk();
   const { data: secretMessage } = trpc.auth.getSecretMessage.useQuery(
     undefined, // no input
     { enabled: !!isSignedIn },
