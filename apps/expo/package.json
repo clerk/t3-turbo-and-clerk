@@ -14,7 +14,7 @@
   "dependencies": {
     "@acme/api": "*",
     "@acme/tailwind-config": "*",
-    "@clerk/clerk-expo": "0.10.6",
+    "@clerk/clerk-expo": "^0.10.15",
     "@shopify/flash-list": "^1.4.0",
     "@tanstack/react-query": "^4.16.1",
     "@trpc/client": "^10.1.0",
