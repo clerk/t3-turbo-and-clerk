@@ -6,7 +6,13 @@
 
 This takes the original create-t3-turbo and adds Clerk authentication allowing you to have one auth package for both Expo and Next.js. You will notice there is no longer an auth package as it is not requried.
 
+## Clerk Dashboard Setup
+
+For this template to work you need to enable Discord as an OAuth provider. You can find the social options under `User & Authentication / Social Providers` in the [Clerk Dashboard](https://dashboard.clerk.dev)
+
 It uses [Turborepo](https://turborepo.org/) and contains:
+
+## Code Layout
 
 ```
 .github
