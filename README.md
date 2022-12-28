@@ -10,6 +10,8 @@ This takes the original create-t3-turbo and adds Clerk authentication allowing y
 
 For this template to work you need to enable Discord as an OAuth provider. You can find the social options under `User & Authentication / Social Providers` in the [Clerk Dashboard](https://dashboard.clerk.dev)
 
+> If you change any setting here outside of adding Discord, you may need to update your Expo code to handle any requirements you change.
+
 It uses [Turborepo](https://turborepo.org/) and contains:
 
 ## Code Layout
