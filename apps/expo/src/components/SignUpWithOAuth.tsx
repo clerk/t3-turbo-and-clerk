@@ -47,7 +47,7 @@ const SignUpWithOAuth = () => {
       const { createdSessionId } = signUp;
 
       if (!createdSessionId) {
-        throw "Something went wrong during the Sign in OAuth flow. Please ensure that all sign in requirements are met.";
+        throw "Something went wrong during the Sign up OAuth flow. Please ensure that all sign in requirements are met.";
       }
 
       await setSession(createdSessionId);
@@ -55,7 +55,7 @@ const SignUpWithOAuth = () => {
       return;
     } catch (err) {
       console.log(JSON.stringify(err, null, 2));
-      console.log("error signing in", err);
+      console.log("error signing up", err);
     }
   };
 
