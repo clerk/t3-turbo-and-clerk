@@ -32,7 +32,6 @@ const SignInWithOAuth = () => {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       const { type, params } = result || {};
-      console.log(type);
 
       if (type !== "success") {
         throw "Something went wrong during the OAuth flow. Try again.";
@@ -46,8 +45,6 @@ const SignInWithOAuth = () => {
       const { createdSessionId } = signIn;
 
       if (!createdSessionId) {
-        console.log("no session id");
-        console.log(signIn);
         if (signIn.firstFactorVerification.status === "transferable") {
           console.log("Didn't have an account transferring");
 
@@ -58,6 +55,9 @@ const SignInWithOAuth = () => {
           await signUp.reload({ rotatingTokenNonce });
 
           const { createdSessionId } = signUp;
+          if (!createdSessionId) {
+            throw "Something went wrong during the Sign up OAuth flow. Please ensure that all sign up requirements are met.";
+          }
           await setSession(createdSessionId);
 
           return;
