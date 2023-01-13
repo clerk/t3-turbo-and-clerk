@@ -1,4 +1,4 @@
-import { useSignIn } from "@clerk/clerk-expo";
+import { useSignUp, useSignIn } from "@clerk/clerk-expo";
 import React from "react";
 import { Button, View } from "react-native";
 
@@ -6,7 +6,7 @@ import * as AuthSession from "expo-auth-session";
 
 const SignInWithOAuth = () => {
   const { isLoaded, signIn, setSession } = useSignIn();
-
+  const { signUp } = useSignUp();
   if (!isLoaded) return null;
 
   const handleSignInWithDiscordPress = async () => {
@@ -32,7 +32,7 @@ const SignInWithOAuth = () => {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       const { type, params } = result || {};
-      console.log;
+
       if (type !== "success") {
         throw "Something went wrong during the OAuth flow. Try again.";
       }
@@ -45,6 +45,23 @@ const SignInWithOAuth = () => {
       const { createdSessionId } = signIn;
 
       if (!createdSessionId) {
+        if (signIn.firstFactorVerification.status === "transferable") {
+          console.log("Didn't have an account transferring");
+
+          await signUp.create({ transfer: true });
+
+          const { rotating_token_nonce: rotatingTokenNonce } = params;
+
+          await signUp.reload({ rotatingTokenNonce });
+
+          const { createdSessionId } = signUp;
+          if (!createdSessionId) {
+            throw "Something went wrong during the Sign up OAuth flow. Please ensure that all sign up requirements are met.";
+          }
+          await setSession(createdSessionId);
+
+          return;
+        }
         throw "Something went wrong during the Sign in OAuth flow. Please ensure that all sign in requirements are met.";
       }
 
