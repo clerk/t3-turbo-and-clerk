@@ -24,50 +24,50 @@ const SignInWithOAuth = () => {
         firstFactorVerification: { externalVerificationRedirectURL },
       } = signIn;
 
-      const result = await AuthSession.startAsync({
+      if (!externalVerificationRedirectURL)
+        throw "Something went wrong during the OAuth flow. Try again.";
+
+      const authResult = await AuthSession.startAsync({
         authUrl: externalVerificationRedirectURL.toString(),
         returnUrl: redirectUrl,
       });
 
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      const { type, params } = result || {};
-
-      if (type !== "success") {
+      if (authResult.type !== "success") {
         throw "Something went wrong during the OAuth flow. Try again.";
       }
 
       // Get the rotatingTokenNonce from the redirect URL parameters
-      const { rotating_token_nonce: rotatingTokenNonce } = params;
+      const { rotating_token_nonce: rotatingTokenNonce } = authResult.params;
 
       await signIn.reload({ rotatingTokenNonce });
 
       const { createdSessionId } = signIn;
 
-      if (!createdSessionId) {
-        if (signIn.firstFactorVerification.status === "transferable") {
-          console.log("Didn't have an account transferring");
-
-          await signUp.create({ transfer: true });
-
-          const { rotating_token_nonce: rotatingTokenNonce } = params;
-
-          await signUp.reload({ rotatingTokenNonce });
-
-          const { createdSessionId } = signUp;
-          if (!createdSessionId) {
-            throw "Something went wrong during the Sign up OAuth flow. Please ensure that all sign up requirements are met.";
-          }
-          await setSession(createdSessionId);
-
-          return;
+      if (createdSessionId) {
+        // If we have a createdSessionId, then auth was successful
+        await setSession(createdSessionId);
+      } else {
+        // If we have no createdSessionId, then this is a first time sign-in, so
+        // we should process this as a signUp instead
+        // Throw if we're not in the right state for creating a new user
+        if (
+          !signUp ||
+          signIn.firstFactorVerification.status !== "transferable"
+        ) {
+          throw "Something went wrong during the Sign up OAuth flow. Please ensure that all sign up requirements are met.";
         }
-        throw "Something went wrong during the Sign in OAuth flow. Please ensure that all sign in requirements are met.";
+
+        console.log(
+          "Didn't have an account transferring, following through with new account sign up",
+        );
+
+        // Create user
+        await signUp.create({ transfer: true });
+        await signUp.reload({
+          rotatingTokenNonce: authResult.params.rotating_token_nonce,
+        });
+        await setSession(signUp.createdSessionId);
       }
-
-      await setSession(createdSessionId);
-
-      return;
     } catch (err) {
       console.log(JSON.stringify(err, null, 2));
       console.log("error signing in", err);

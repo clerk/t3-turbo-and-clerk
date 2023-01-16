@@ -7,13 +7,11 @@ import { HomeScreen } from "./screens/home";
 import { SignInSignUpScreen } from "./screens/signin";
 import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-expo";
 import { tokenCache } from "./utils/cache";
-
-// Find this in your Dashboard.
-const clerk_frontend_api = "YOUR_CLERK_FRONTEND_API";
+import { CLERK_FRONTEND_API } from "./constants";
 
 export const App = () => {
   return (
-    <ClerkProvider frontendApi={clerk_frontend_api} tokenCache={tokenCache}>
+    <ClerkProvider frontendApi={CLERK_FRONTEND_API} tokenCache={tokenCache}>
       <SignedIn>
         <TRPCProvider>
           <SafeAreaProvider>
