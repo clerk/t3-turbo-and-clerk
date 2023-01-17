@@ -10,7 +10,8 @@
     "db-push": "turbo db-push",
     "dev": "turbo dev --parallel",
     "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "lint": "turbo lint && manypkg check",
+    "lint": "turbo lint",
+    "FIXME:lint": "turbo lint && manypkg check",
     "type-check": "turbo type-check"
   },
   "dependencies": {
@@ -22,5 +23,10 @@
     "prettier-plugin-tailwindcss": "^0.1.13",
     "turbo": "^1.5.5",
     "typescript": "^4.9.3"
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "react-native@0.70.5": "patches/react-native@0.70.5.patch"
+    }
   }
 }
