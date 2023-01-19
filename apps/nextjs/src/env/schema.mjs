@@ -7,8 +7,9 @@ import { z } from "zod";
  */
 export const serverSchema = z.object({
   NODE_ENV: z.enum(["development", "test", "production"]),
-  CLERK_API_KEY: z.string(),
-  CLERK_JWT_KEY: z.string(),
+  CLERK_API_KEY: z.string().optional(),
+  CLERK_JWT_KEY: z.string().optional(),
+  CLERK_SECRET_KEY: z.string().optional(),
 });
 
 /**
@@ -17,7 +18,8 @@ export const serverSchema = z.object({
  * To expose them to the client, prefix them with `NEXT_PUBLIC_`.
  */
 export const clientSchema = z.object({
-  NEXT_PUBLIC_CLERK_FRONTEND_API: z.string(),
+  NEXT_PUBLIC_CLERK_FRONTEND_API: z.string().optional(),
+  NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: z.string().optional(),
 });
 
 /**
@@ -28,4 +30,6 @@ export const clientSchema = z.object({
  */
 export const clientEnv = {
   NEXT_PUBLIC_CLERK_FRONTEND_API: process.env.NEXT_PUBLIC_CLERK_FRONTEND_API,
+  NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY:
+    process.env.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY,
 };

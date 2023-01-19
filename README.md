@@ -65,7 +65,15 @@ pnpm db-push
 
 ### Configure Expo app
 
-In the `_app.tsx` replace `const clerk_frontend_api = "YOUR_CLERK_FRONTEND_API";` with your api key.
+In the /apps/expo/src/constants.ts you will find two different keys, only one is required, the FRONTEND_API is a legacy key for apps created prior to 1/18/2023:
+
+```
+// CLERK_FRONTEND_API is only for legacy apps
+export const CLERK_FRONTEND_API = "";
+
+// FOR CLERK APPS AFTER 1/18/2023 pk_test_XXXXXXXXXXXXXXXXXXXXXXXX
+export const CLERK_PUBLISHABLE_KEY = undefined;
+```
 
 ### Configure Expo `dev`-script
 
