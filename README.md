@@ -119,7 +119,7 @@ Let's deploy the Next.js application to [Vercel](https://vercel.com/). If you ha
 
 > The install command filters out the expo package and saves a few second (and cache size) of dependency installation. The build command makes us build the application using Turbo.
 
-2. Add your `DATABASE_URL`, `NEXT_PUBLIC_CLERK_FRONTEND_API`, `CLERK_API_KEY`, `CLERK_JWT_KEY` environment variable.
+2. Add your `DATABASE_URL`, `NEXT_PUBLIC_CLERK_FRONTEND_API`, `CLERK_API_KEY`, `CLERK_JWT_KEY` or `CLERK_SECRET_KEY` and `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` environment variable.
 
 3. Done! Your app should successfully deploy. Assign your domain and use that instead of `localhost` for the `url` in the Expo app so that your Expo app can communicate with your backend when you are not in development.
 
