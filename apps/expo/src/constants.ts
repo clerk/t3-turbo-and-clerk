@@ -11,12 +11,9 @@
  *    result)
  */
 
-// CLERK_FRONTEND_API is only for legacy apps
-export const CLERK_FRONTEND_API = "";
-
 // FOR CLERK APPS AFTER 1/18/2023 pk_test_XXXXXXXXXXXXXXXXXXXXXXXX
 export const CLERK_PUBLISHABLE_KEY = undefined;
 
-if (CLERK_FRONTEND_API === "" && CLERK_PUBLISHABLE_KEY === undefined) {
-  throw new Error("CLERK_FRONTEND_API or CLERK_PUBLISHABLE_KEY is not defined");
+if (CLERK_PUBLISHABLE_KEY === undefined) {
+  throw new Error("CLERK_PUBLISHABLE_KEY is not defined");
 }

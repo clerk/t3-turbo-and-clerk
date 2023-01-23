@@ -7,12 +7,11 @@ import { HomeScreen } from "./screens/home";
 import { SignInSignUpScreen } from "./screens/signin";
 import { ClerkProvider, SignedIn, SignedOut } from "@clerk/clerk-expo";
 import { tokenCache } from "./utils/cache";
-import { CLERK_FRONTEND_API, CLERK_PUBLISHABLE_KEY } from "./constants";
+import { CLERK_PUBLISHABLE_KEY } from "./constants";
 
 export const App = () => {
   return (
     <ClerkProvider
-      frontendApi={CLERK_FRONTEND_API}
       publishableKey={CLERK_PUBLISHABLE_KEY}
       tokenCache={tokenCache}
     >
