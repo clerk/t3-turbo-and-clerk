@@ -66,7 +66,7 @@ pnpm db-push
 ### Configure Expo app
 
 ```
-export const CLERK_PUBLISHABLE_KEY = undefined;
+export const CLERK_PUBLISHABLE_KEY = your_publishable_key;
 ```
 
 ### Configure Expo `dev`-script
