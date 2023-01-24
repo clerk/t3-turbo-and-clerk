@@ -66,7 +66,6 @@ pnpm db-push
 ### Configure Expo app
 
 ```
-// FOR CLERK APPS AFTER 1/18/2023 pk_test_XXXXXXXXXXXXXXXXXXXXXXXX
 export const CLERK_PUBLISHABLE_KEY = undefined;
 ```
 
