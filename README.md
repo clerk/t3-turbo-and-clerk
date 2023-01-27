@@ -65,6 +65,8 @@ pnpm db-push
 
 ### Configure Expo app
 
+Expo doesn't use the .env for the publishable key, so you will need to go to `/apps/expo/src/constants.ts` and add it there.
+
 ```
 export const CLERK_PUBLISHABLE_KEY = your_publishable_key;
 ```
