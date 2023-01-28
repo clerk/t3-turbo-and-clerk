@@ -4,7 +4,7 @@
  *
  * NOTE: we recommend putting the publishable key here instead of in your .env
  * files for two reasons:
- * 1. It's okay for this to be "public" (CLERK_SECRET_KEY 
+ * 1. It's okay for this to be "public" (CLERK_SECRET_KEY should
  *    NEVER be public)
  * 2. Parsing the .env file in Metro/Expo runs the risk of including the
  *    variables above that we don't want (and it's obnoxious to do right as a
