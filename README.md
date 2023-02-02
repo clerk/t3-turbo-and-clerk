@@ -4,7 +4,7 @@
 
 ## About
 
-This takes the original create-t3-turbo and adds Clerk authentication allowing you to have one auth package for both Expo and Next.js. You will notice there is no longer an auth package as it is not requried.
+This takes the original create-t3-turbo and adds Clerk authentication allowing you to have one auth package for both Expo and Next.js. You will notice there is no longer an auth package as it is not required.
 
 ## Clerk Dashboard Setup
 
