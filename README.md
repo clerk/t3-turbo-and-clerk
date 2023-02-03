@@ -2,10 +2,6 @@
 
 # Create T3 Turbo with Clerk Authentication
 
-## About
-
-This takes the original create-t3-turbo and adds Clerk authentication allowing you to have one auth package for both Expo and Next.js. You will notice there is no longer an auth package as it is not requried.
-
 ## Clerk Dashboard Setup
 
 For this template to work you need to enable Discord as an OAuth provider. You can find the social options under `User & Authentication / Social Providers` in the [Clerk Dashboard](https://dashboard.clerk.dev)
@@ -24,14 +20,9 @@ It uses [Turborepo](https://turborepo.org/) and contains:
   └─ Recommended extensions and settings for VSCode users
 apps
   ├─ expo
-  |   ├─ Expo SDK 46
-  |   ├─ React Native using React 18
-  |   ├─ Tailwind using Nativewind
-  |   └─ Typesafe API calls using tRPC
   └─ next.js
       ├─ Next.js 13
       ├─ React 18
-      ├─ TailwindCSS
       └─ E2E Typesafe API Server & Client
 packages
  ├─ api
@@ -184,6 +175,4 @@ Deploying your Expo application works slightly differently compared to Next.js o
 
 ## References
 
-The stack originates from [create-t3-app](https://github.com/t3-oss/create-t3-app).
-
-A [blog post](https://jumr.dev/blog/t3-turbo) where I wrote how to migrate a T3 app into this.
+The stack originates from [create-t3-turbo](https://github.com/t3-oss/create-t3-turbo).
