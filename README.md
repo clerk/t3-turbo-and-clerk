@@ -147,7 +147,36 @@ Deploying your Expo application works slightly differently compared to Next.js o
 
 4. Before you can get your app in the hands of your users, you'll have to provide additional information to the app stores. This includes screenshots, app information, privacy policies, etc. _While still in preview_, [EAS Metadata](https://docs.expo.dev/eas/metadata/) can help you with most of this information.
 
-5. Once everything is approved, your users can finally enjoy your app. Let's say you spotted a small typo; you'll have to create a new build, submit it to the stores, and wait for approval before you can resolve this issue. In these cases, you can use EAS Update to quickly send a small bugfix to your users without going through this long process. Let's start by setting up EAS Update.
+5. If you're using OAuth social providers with Clerk, for instance Google, Apple, Facebook, etc..., you must whitelist your own OAuth redirect URL for the Expo application in the Clerk Dashboard.
+
+   In `apps/expo/app.config.ts`, add a `scheme` that will be used to identify your standalone app.
+
+   ```ts
+   import { ExpoConfig, ConfigContext } from "@expo/config";
+
+   const CLERK_PUBLISHABLE_KEY = "your-clerk-publishable-key";
+
+   const defineConfig = (_ctx: ConfigContext): ExpoConfig => ({
+      name: "expo",
+      slug: "expo",
+      scheme: "your-app-scheme",
+      // ...
+   });
+   ```
+
+   Then, in the [Clerk Dashboard](https://dashboard.clerk.dev/), go to **User & Authentication > Social Connections > Settings** and add your app's scheme and redirect URL to the **Redirect URLs** field:
+
+   ```txt
+   your-app-scheme://oauth-native-callback
+   ```
+
+   Here, `your-app-scheme` corresponds to the `scheme` defined in `app.config.ts`, and `oauth-native-callback` corresponds to the redirect URL defined when authenticating with social providers. See [SignInWithOAuth.tsx](/apps/expo/src/components/SignInWithOAuth.tsx) for reference.
+
+   > You can find more information about this in the [Expo documentation](https://docs.expo.dev/versions/latest/sdk/auth-session/#redirecting-to-your-app).
+
+   You should now be able to sign in with your social providers in the TestFlight application build.
+
+6. Once everything is approved, your users can finally enjoy your app. Let's say you spotted a small typo; you'll have to create a new build, submit it to the stores, and wait for approval before you can resolve this issue. In these cases, you can use EAS Update to quickly send a small bugfix to your users without going through this long process. Let's start by setting up EAS Update.
 
    The steps below summarize the [Getting started with EAS Update](https://docs.expo.dev/eas-update/getting-started/#configure-your-project) guide.
 
