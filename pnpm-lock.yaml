@@ -93,7 +93,7 @@ importers:
       '@acme/api': '*'
       '@acme/db': '*'
       '@acme/tailwind-config': '*'
-      '@clerk/nextjs': ^4.8.2
+      '@clerk/nextjs': ^4.11.0
       '@tanstack/react-query': ^4.16.1
       '@trpc/client': ^10.1.0
       '@trpc/next': ^10.1.0
@@ -116,7 +116,7 @@ importers:
       '@acme/api': link:../../packages/api
       '@acme/db': link:../../packages/db
       '@acme/tailwind-config': link:../../packages/config/tailwind
-      '@clerk/nextjs': 4.8.2_3vryta7zmbcsw4rrqf4axjqggm
+      '@clerk/nextjs': 4.11.0_3vryta7zmbcsw4rrqf4axjqggm
       '@tanstack/react-query': 4.19.1_biqbaboplfbrettd7655fr4n2y
       '@trpc/client': 10.5.0_@trpc+server@10.5.0
       '@trpc/next': 10.5.0_7ajv4fri4atzrhogcejqr2pcvy
@@ -1466,11 +1466,11 @@ packages:
     resolution: {integrity: sha512-LDQvVDv5Kb50ny2s25Fhm3d9QSZimsoUGBsUioj6MC3qbMUCuC8GPIvk/M6IvXx3lYhAs0lwWUQLb+VIEUCECw==}
     dev: false
 
-  /@clerk/backend/0.5.2:
-    resolution: {integrity: sha512-h+XbgxXFm/ft+E24zAZFO9JViMSrAXsoptHWlJ5Rajx6MdIGkCN3qL7nah1mHOccSlmXWb3h1I5Zz3SXoRjHJQ==}
+  /@clerk/backend/0.9.0:
+    resolution: {integrity: sha512-gFAMQwCIiH8tZq63ekePLRoT1uJn0xD0muvpHGk6tU55icFItVlO3zvHzoP/eSo4keNAKhqGzKv3O7DCMDIONQ==}
     engines: {node: '>=14'}
     dependencies:
-      '@clerk/types': 3.25.1
+      '@clerk/types': 3.28.2
       '@peculiar/webcrypto': 1.4.1
       '@types/node': 16.18.6
       deepmerge: 4.2.2
@@ -1527,21 +1527,19 @@ packages:
       - react-test-renderer
     dev: false
 
-  /@clerk/clerk-react/4.10.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-r/jw4Td2/AHGiojWii5kotb3lQlvGaurFO1QbtXXjeDwHt7qRvbiANQ5pDgqMd4JgasLEhL3kPpQ46/Ti4Okwg==}
+  /@clerk/clerk-react/4.11.5_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-qxu++TBSfEISc8z0hHdlIU4yhiP4hC+e7ChrbwfIPvy8K9YNciY6TgCDFUgZPmczKmhhmtd7ibQhK4PT31yiIg==}
     engines: {node: '>=14'}
     peerDependencies:
       react: '>=16'
       react-dom: '>=16'
     dependencies:
-      '@clerk/shared': 0.10.0_biqbaboplfbrettd7655fr4n2y
-      '@clerk/types': 3.25.1
+      '@clerk/shared': 0.12.0_biqbaboplfbrettd7655fr4n2y
+      '@clerk/types': 3.28.2
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       swr: 1.3.0_react@18.2.0
       tslib: 2.4.1
-    transitivePeerDependencies:
-      - react-test-renderer
     dev: false
 
   /@clerk/clerk-react/4.8.2_biqbaboplfbrettd7655fr4n2y:
@@ -1561,15 +1559,14 @@ packages:
       - react-test-renderer
     dev: false
 
-  /@clerk/clerk-sdk-node/4.6.6:
-    resolution: {integrity: sha512-mGiItYooNv1P5q2nwoEzwRQ5/7qKkF3sSyrtr+rnKN8ddYdNoVT+cJW86dWcTcrmTACKy+78NDaQoEpB16POSA==}
+  /@clerk/clerk-sdk-node/4.7.5:
+    resolution: {integrity: sha512-lV26jF3kzTmB3W6+Fuzb4ymtMaSLPBJVgZ0XynkeYHU9ZCAcl2Sa8PQCTaEY1xSmjnrXGm0VlI5hVUSX9qZtqA==}
     engines: {node: '>=14'}
     dependencies:
-      '@clerk/backend': 0.5.2
-      '@clerk/types': 3.25.1
+      '@clerk/backend': 0.9.0
+      '@clerk/types': 3.28.2
       '@types/cookies': 0.7.7
       '@types/express': 4.17.14
-      '@types/jsonwebtoken': 8.5.9
       '@types/node-fetch': 2.6.2
       camelcase-keys: 6.2.2
       cookie: 0.5.0
@@ -1587,32 +1584,29 @@ packages:
       react: 18.2.0
     dev: false
 
-  /@clerk/nextjs/4.8.2_3vryta7zmbcsw4rrqf4axjqggm:
-    resolution: {integrity: sha512-hgZm/CUHlbi8lDwE48eR9nVfWNJ6CmmvuloOXRF/oamQs7H0NnX4rsM7mlTm8SlDNf26NTjVT1Pc+u647MIbmA==}
+  /@clerk/nextjs/4.11.0_3vryta7zmbcsw4rrqf4axjqggm:
+    resolution: {integrity: sha512-XT0kZb8zUYSlu0TRUVt7rsJzkbwiXcm6+j8v3EQy5mMxe/d+wKUIn8CUnNzxvaeOp+qAmljio24WFNC/7Vgr+A==}
     engines: {node: '>=14'}
     peerDependencies:
       next: '>=10'
       react: ^17.0.2 || ^18.0.0-0
       react-dom: ^17.0.2 || ^18.0.0-0
     dependencies:
-      '@clerk/backend': 0.5.2
-      '@clerk/clerk-react': 4.10.0_biqbaboplfbrettd7655fr4n2y
-      '@clerk/clerk-sdk-node': 4.6.6
-      '@clerk/types': 3.25.1
+      '@clerk/backend': 0.9.0
+      '@clerk/clerk-react': 4.11.5_biqbaboplfbrettd7655fr4n2y
+      '@clerk/clerk-sdk-node': 4.7.5
+      '@clerk/types': 3.28.2
       next: 13.1.6_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       tslib: 2.4.1
-    transitivePeerDependencies:
-      - react-test-renderer
     dev: false
 
-  /@clerk/shared/0.10.0_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-D61w65vaGcknlW+A37wc8GZqymXY7iBDJOS6xfNMtObnaiLlI8e47Rso+rS+Z93DbxzlSKM3roSNsOiVU3ei2g==}
+  /@clerk/shared/0.12.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-VnBqDxCkucrqYvABG79plUUlTq2vC+ra1jNc8vx10GTnax0cjiunaAPmYjatlhB3KgXODoILS02eJs0N1SqWgw==}
     peerDependencies:
-      react: 18.2.0
-      react-dom: 18.2.0
-      react-test-renderer: ^18.2.0
+      react: '>=16'
+      react-dom: '>=16'
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
@@ -1636,8 +1630,8 @@ packages:
       csstype: 3.1.1
     dev: false
 
-  /@clerk/types/3.25.1:
-    resolution: {integrity: sha512-g6diw/CYBzzzYxFYMl4sPGGNKOY1N0/qUeqj7PEQT9QasCv6aTKvhBq4YQohMKZ+1mR2Di0bdxVDlKYXDVRxhg==}
+  /@clerk/types/3.28.2:
+    resolution: {integrity: sha512-kIX5Es/0OBODwPNRmpB2xG8NefjtmIajZdWPNrGYbayD07LYsT/3aSBusV5Fyvlz/p4RBnIZ/mqzDLhjdV3+RA==}
     engines: {node: '>=14'}
     dependencies:
       csstype: 3.1.1
@@ -2958,12 +2952,6 @@ packages:
   /@types/json5/0.0.29:
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
     dev: true
-
-  /@types/jsonwebtoken/8.5.9:
-    resolution: {integrity: sha512-272FMnFGzAVMGtu9tkr29hRL6bZj4Zs1KZNeHLnKqAvp06tAIcarTMwOh8/8bz4FmKRcMxZhZNeUAQsNLoiPhg==}
-    dependencies:
-      '@types/node': 18.11.18
-    dev: false
 
   /@types/keygrip/1.0.2:
     resolution: {integrity: sha512-GJhpTepz2udxGexqos8wgaBx4I/zWIDPh/KOGEwAqtuGDkOUJu5eFvwmdBX4AmB8Odsr+9pHCQqiAqDL/yKMKw==}
