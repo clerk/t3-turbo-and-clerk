@@ -41,10 +41,6 @@ To get it running, follow the steps below:
 # Install dependencies
 pnpm i
 
-# In packages/db/prisma update schema.prisma provider to use sqlite
-# or use your own database provider
-- provider = "postgresql"
-+ provider = "sqlite"
 
 # Configure environment variables.
 # There is an `.env.example` in the root directory you can use for reference
