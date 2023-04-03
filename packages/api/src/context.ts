@@ -5,7 +5,7 @@ import { getAuth } from "@clerk/nextjs/server";
 import type {
   SignedInAuthObject,
   SignedOutAuthObject,
-} from "@clerk/nextjs/dist/api";
+} from "@clerk/nextjs/api";
 
 /**
  * Replace this with an object if you want to pass things to createContextInner
