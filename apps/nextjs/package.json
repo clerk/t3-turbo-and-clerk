@@ -5,9 +5,9 @@
   "scripts": {
     "with-env": "dotenv -e ../../.env --",
     "dev": "pnpm with-env next dev",
-    "build": "next build",
+    "build": "pnpm with-env next build",
     "clean": "rm -rf .next .turbo node_modules",
-    "start": "next start",
+    "start": "pnpm with-env next start",
     "lint": "next lint",
     "type-check": "tsc --noEmit"
   },
