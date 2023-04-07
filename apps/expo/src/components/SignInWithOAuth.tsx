@@ -1,10 +1,10 @@
 import { useOAuth } from "@clerk/clerk-expo";
 import React from "react";
 import { Button, View } from "react-native";
-import { useWamUpBrowser } from "../hooks/useWarmUpBrowser";
+import { useWarmUpBrowser } from "../hooks/useWarmUpBrowser";
 
 const SignInWithOAuth = () => {
-  useWamUpBrowser();
+  useWarmUpBrowser();
 
   const { startOAuthFlow } = useOAuth({ strategy: "oauth_discord" });
 
