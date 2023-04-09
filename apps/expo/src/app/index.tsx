@@ -6,7 +6,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { FlashList } from "@shopify/flash-list";
 import { Stack, useRouter } from "expo-router";
 
-import { trpc } from "../utils/trpc";
+import { trpc, type RouterOutputs } from "../utils/trpc";
 
 const SignOut = () => {
   const { signOut } = useAuth();
@@ -15,7 +15,7 @@ const SignOut = () => {
       <Button
         title="Sign Out"
         onPress={() => {
-          signOut();
+          signOut().catch((err) => console.log(err));
         }}
       />
     </View>

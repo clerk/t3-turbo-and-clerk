@@ -19,7 +19,7 @@ import { useAuth } from "@clerk/clerk-expo";
  * A set of typesafe hooks for consuming your API.
  */
 export const trpc = createTRPCReact<AppRouter>();
-
+export { type RouterInputs, type RouterOutputs } from "@acme/api";
 const getBaseUrl = () => {
   /**
    * Gets the IP address of your host-machine. If it cannot automatically find it,

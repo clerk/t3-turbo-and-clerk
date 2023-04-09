@@ -11,7 +11,7 @@ import Constants from "expo-constants";
 const RootLayout = () => {
   return (
     <ClerkProvider
-      publishableKey={Constants.expoConfig?.extra?.CLERK_PUBLISHABLE_KEY}
+      publishableKey={Constants.expoConfig?.extra?.CLERK_PUBLISHABLE_KEY as string}
       tokenCache={tokenCache}
     >
       <SignedIn>
