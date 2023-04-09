@@ -1,10 +1,12 @@
-import { ExpoConfig, ConfigContext } from "@expo/config";
+import type { ExpoConfig } from "@expo/config";
 
-const CLERK_PUBLISHABLE_KEY = "your-clerk-publishable-key";
+const CLERK_PUBLISHABLE_KEY = "pk_test_cHJvLWNyYXdkYWQtODcuY2xlcmsuYWNjb3VudHMuZGV2JA";
 
-const defineConfig = (_ctx: ConfigContext): ExpoConfig => ({
+
+const defineConfig = (): ExpoConfig => ({
   name: "expo",
   slug: "expo",
+  scheme: "expo",
   version: "1.0.0",
   orientation: "portrait",
   icon: "./assets/icon.png",
@@ -12,7 +14,7 @@ const defineConfig = (_ctx: ConfigContext): ExpoConfig => ({
   splash: {
     image: "./assets/icon.png",
     resizeMode: "contain",
-    backgroundColor: "#2e026d",
+    backgroundColor: "#1F104A",
   },
   updates: {
     fallbackToCacheTimeout: 0,
@@ -25,7 +27,7 @@ const defineConfig = (_ctx: ConfigContext): ExpoConfig => ({
   android: {
     adaptiveIcon: {
       foregroundImage: "./assets/icon.png",
-      backgroundColor: "#2e026d",
+      backgroundColor: "#1F104A",
     },
   },
   extra: {

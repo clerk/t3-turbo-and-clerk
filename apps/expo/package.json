@@ -1,7 +1,7 @@
 {
     "name": "@acme/expo",
     "version": "0.1.0",
-    "main": "index.ts",
+    "main": "index.tsx",
     "scripts": {
         "start": "expo start",
         "dev": "expo start",
@@ -23,14 +23,16 @@
         "expo": "^48.0.6",
         "expo-auth-session": "^4.0.3",
         "expo-random": "^13.0.0",
-        "expo-web-browser": "^12.1.1",
+        "expo-router": "^1.5.2",
         "expo-secure-store": "^12.1.1",
         "expo-status-bar": "^1.4.2",
+        "expo-web-browser": "^12.1.1",
         "nativewind": "^2.0.11",
         "react": "18.2.0",
         "react-dom": "18.2.0",
         "react-native": "0.70.5",
         "react-native-safe-area-context": "4.4.1",
+        "react-native-screens": "^3.20.0",
         "react-native-web": "~0.18.10"
     },
     "devDependencies": {
