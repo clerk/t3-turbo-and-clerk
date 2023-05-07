@@ -14,6 +14,13 @@ const config = {
   eslint: {
     ignoreDuringBuilds: !!process.env.CI,
   },
+  images: {
+    domains: [
+      "images.clerk.dev",
+      "avatars.githubusercontent.com",
+      "www.gravatar.com",
+    ],
+  },
 };
 
 export default config;
