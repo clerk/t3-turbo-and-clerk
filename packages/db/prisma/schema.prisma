@@ -11,7 +11,28 @@ datasource db {
 }
 
 model Post {
-    id      String @id @default(cuid())
-    title   String
-    content String
+    id       String @id @default(cuid())
+    title    String
+    content  String
+    authorId String
+    author   User   @relation(fields: [authorId], references: [id], onDelete: Cascade)
+
+    @@index([authorId])
+}
+
+model User {
+    id              String   @id
+    email           String   @unique
+    firstName       String
+    lastName        String
+    username        String   @unique
+    profileImageUrl String
+    gender          String
+    birthday        String
+    createdAt       DateTime
+    updatedAt       DateTime
+    lastSignInAt    DateTime
+    posts           Post[]
+
+    @@index([username])
 }
