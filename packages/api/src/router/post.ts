@@ -9,8 +9,23 @@ export const postRouter = router({
     return ctx.prisma.post.findFirst({ where: { id: input } });
   }),
   create: protectedProcedure
-    .input(z.object({ title: z.string(), content: z.string() }))
+    .input(
+      z.object({
+        title: z.string(),
+        content: z.string(),
+        authorId: z.string(),
+      }),
+    )
     .mutation(({ ctx, input }) => {
       return ctx.prisma.post.create({ data: input });
+    }),
+  delete: protectedProcedure
+    .input(
+      z.object({
+        id: z.string(),
+      }),
+    )
+    .mutation(({ ctx, input }) => {
+      return ctx.prisma.post.delete({ where: input });
     }),
 });
