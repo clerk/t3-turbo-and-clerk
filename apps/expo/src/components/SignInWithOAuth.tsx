@@ -11,8 +11,8 @@ const SignInWithOAuth = () => {
   const handleSignInWithDiscordPress = React.useCallback(async () => {
     try {
       const { createdSessionId, signIn, signUp, setActive } =
-        await startOAuthFlow();
-      if (createdSessionId) {
+        await startOAuthFlow({});
+      if (createdSessionId && setActive) {
         setActive({ session: createdSessionId });
       } else {
         // Modify this code to use signIn or signUp to set this missing requirements you set in your dashboard.
