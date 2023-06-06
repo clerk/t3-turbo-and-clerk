@@ -9,7 +9,8 @@
         "android": "expo start --android",
         "ios": "expo start --ios",
         "web": "expo start --web",
-        "lint": "eslint . --ext ts,tsx"
+        "lint": "eslint . --ext ts,tsx",
+        "type-check": "tsc --noEmit"        
     },
     "dependencies": {
         "@acme/api": "*",
