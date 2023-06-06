@@ -24,6 +24,7 @@ const SignInWithOAuth = () => {
       console.log("error signing in", err);
     }
   }, []);
+
   return (
     <View className="rounded-lg border-2 border-gray-500 p-4">
       <Button
