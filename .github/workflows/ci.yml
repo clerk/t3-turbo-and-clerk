@@ -5,6 +5,7 @@ on:
     branches: ["*"]
   push:
     branches: ["main"]
+  merge_group:
 
 # You can leverage Vercel Remote Caching with Turbo to speed up your builds
 # @link https://turborepo.org/docs/core-concepts/remote-caching#remote-caching-on-vercel-builds
@@ -13,7 +14,6 @@ env:
   TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
   NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: ${{secrets.NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY}}
   CLERK_SECRET_KEY: ${{secrets.CLERK_SECRET_KEY}}
-
 
 jobs:
   build-lint:
@@ -49,11 +49,10 @@ jobs:
       - name: Install deps (with cache)
         run: pnpm install
 
-      - name: Next.js cache
-        uses: actions/cache@v3
-        with:
-          path: ${{ github.workspace }}apps/nextjs/.next/cache
-          key: ${{ runner.os }}-${{ runner.node }}-${{ hashFiles('**/pnpm-lock.yaml') }}-nextjs
+      # Normally, this would be done as part of the turbo pipeline - however since the Expo app doesn't depend on `@acme/db` it doesn't care.
+      # TODO: Free for all to find a better solution here.
+      - name: Generate Prisma Client
+        run: pnpm turbo db:generate
 
       - name: Build, lint and type-check
         run: pnpm turbo build lint type-check
