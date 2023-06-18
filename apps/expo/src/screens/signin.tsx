@@ -1,6 +1,5 @@
 import React from "react";
-
-import { View, SafeAreaView } from "react-native";
+import { SafeAreaView, View } from "react-native";
 
 import SignInWithOAuth from "../components/SignInWithOAuth";
 

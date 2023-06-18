@@ -1,5 +1,5 @@
-import * as SecureStore from "expo-secure-store";
 import { Platform } from "react-native";
+import * as SecureStore from "expo-secure-store";
 
 export async function saveToken(key: string, value: string) {
   // console.log("Save token", key, value);

@@ -1,13 +1,13 @@
 import React from "react";
-
 import { Button, Text, TextInput, TouchableOpacity, View } from "react-native";
-import { useAuth } from "@clerk/clerk-expo";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { useAuth } from "@clerk/clerk-expo";
 import { FlashList } from "@shopify/flash-list";
 import type { inferProcedureOutput } from "@trpc/server";
+
 import type { AppRouter } from "@acme/api";
 
-import { trpc } from "../utils/trpc";
+import { api } from "~/utils/api";
 
 const SignOut = () => {
   const { signOut } = useAuth();
@@ -16,7 +16,7 @@ const SignOut = () => {
       <Button
         title="Sign Out"
         onPress={() => {
-          signOut();
+          void signOut();
         }}
       />
     </View>
@@ -35,8 +35,8 @@ const PostCard: React.FC<{
 };
 
 const CreatePost: React.FC = () => {
-  const utils = trpc.useContext();
-  const { mutate } = trpc.post.create.useMutation({
+  const utils = api.useContext();
+  const { mutate } = api.post.create.useMutation({
     async onSuccess() {
       await utils.post.all.invalidate();
     },
@@ -73,7 +73,7 @@ const CreatePost: React.FC = () => {
 };
 
 export const HomeScreen = () => {
-  const postQuery = trpc.post.all.useQuery();
+  const postQuery = api.post.all.useQuery();
   const [showPost, setShowPost] = React.useState<string | null>(null);
 
   return (
