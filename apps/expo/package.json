@@ -41,7 +41,7 @@
     "@types/react-native": "~0.70.6",
     "eslint": "^8.28.0",
     "postcss": "^8.4.19",
-    "tailwindcss": "^3.3.5",
+    "tailwindcss": "3.3.2",
     "typescript": "^4.9.3"
   },
   "private": true
