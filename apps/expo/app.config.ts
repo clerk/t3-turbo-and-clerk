@@ -1,40 +1,48 @@
-import { ExpoConfig, ConfigContext } from "@expo/config";
+import type { ConfigContext, ExpoConfig } from "@expo/config";
 
 const CLERK_PUBLISHABLE_KEY = "your-clerk-publishable-key";
 
 const defineConfig = (_ctx: ConfigContext): ExpoConfig => ({
   name: "expo",
+  jsEngine: "hermes",
   slug: "expo",
-  version: "1.0.0",
+  scheme: "expo",
+  version: "0.1.0",
   orientation: "portrait",
   icon: "./assets/icon.png",
-  userInterfaceStyle: "light",
+  userInterfaceStyle: "dark",
+  backgroundColor: "#000000",
   splash: {
     image: "./assets/icon.png",
     resizeMode: "contain",
-    backgroundColor: "#2e026d",
+    backgroundColor: "#1F104A",
   },
   updates: {
     fallbackToCacheTimeout: 0,
   },
   assetBundlePatterns: ["**/*"],
   ios: {
-    supportsTablet: true,
     bundleIdentifier: "your.bundle.identifier",
+    supportsTablet: true,
   },
   android: {
+    package: "your.bundle.identifier",
     adaptiveIcon: {
       foregroundImage: "./assets/icon.png",
-      backgroundColor: "#2e026d",
+      backgroundColor: "#1F104A",
     },
   },
   extra: {
-    eas: {
-      projectId: "your-project-id",
-    },
+    // eas: {
+    //   projectId: "your-project-id",
+    // },
     CLERK_PUBLISHABLE_KEY,
   },
-  plugins: ["./expo-plugins/with-modify-gradle.js"],
+  experiments: {
+    tsconfigPaths: true,
+    typedRoutes: true,
+  },
+  plugins: ["expo-router", "./expo-plugins/with-modify-gradle.js"],
 });
 
 export default defineConfig;
