@@ -1,22 +1,11 @@
-import { appRouter, createContext } from "@acme/api";
+import type { CreateNextContextOptions } from "@trpc/server/adapters/next";
+import { getAuth } from "@clerk/nextjs/server";
 import { createNextApiHandler } from "@trpc/server/adapters/next";
 
-// export API handler
+import { appRouter, createContextInner } from "@acme/api";
+
 export default createNextApiHandler({
   router: appRouter,
-  createContext,
+  createContext: (opts: CreateNextContextOptions) =>
+    createContextInner({ auth: getAuth(opts.req) }),
 });
-
-// If you need to enable cors, you can do so like this:
-// const handler = async (req: NextApiRequest, res: NextApiResponse) => {
-//   // Enable cors
-//   await cors(req, res);
-
-//   // Let the tRPC handler do its magic
-//   return createNextApiHandler({
-//     router: appRouter,
-//     createContext,
-//   })(req, res);
-// };
-
-// export default handler;

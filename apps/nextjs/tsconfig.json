@@ -1,5 +1,23 @@
 {
-  "extends": "../../tsconfig.json",
-  "exclude": [],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.mjs"]
+  "extends": "@acme/tsconfig/base.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "~/*": ["./src/*"],
+    },
+    "plugins": [
+      {
+        "name": "next",
+      },
+    ],
+    "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo.json",
+    "strictNullChecks": true,
+  },
+  "include": [".", ".next/types/**/*.ts"],
+  "exclude": ["node_modules"],
 }
+// {
+//   "extends": "../../tsconfig.json",
+//   "exclude": [],
+//   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.mjs"]
+// }
